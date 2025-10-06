@@ -39,13 +39,13 @@ int	main(int argc, char **argv)
 		return (0);
 	initialize_stacks(&stacks);
 	if (argc > 2)
-		build_stack(&stacks, argv + 1);
+		build_stack(&stacks, argv + 1, 0);
 	else
 	{
 		args = ft_split(argv[1], ' ');
 		if (!args)
 			return (1);
-		build_stack(&stacks, args);
+		build_stack(&stacks, args, 1);
 		free_array(args);
 		free(args);
 	}

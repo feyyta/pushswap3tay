@@ -18,7 +18,7 @@ INC = -I inc/ -I libft/inc/
 
 SRC = src/main.c src/utils.c src/init.c \
 	src/operations.c src/rotations.c src/push_operations.c \
-	src/sorting_algorithm.c src/simple_sorts.c
+	src/sorting_algorithm.c src/simple_sorts.c src/utils_algo.c src/utils_sort.c \
 
 OBJ_DIR = objects/
 OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))

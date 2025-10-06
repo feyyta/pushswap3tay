@@ -93,6 +93,7 @@ char	**ft_split(char const *s, char c)
 {
 	int		mot;
 	char	**tab;
+	char	**result;
 
 	mot = 0;
 	if (!s)
@@ -101,8 +102,10 @@ char	**ft_split(char const *s, char c)
 	tab = ft_calloc(mot + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
-	tab = allmot(tab, s, c, mot);
-	return (tab);
+	result = allmot(tab, s, c, mot);
+	if (!result)
+		free(tab);
+	return (result);
 }
 /*
 int	main(void)

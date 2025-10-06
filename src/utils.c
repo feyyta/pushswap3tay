@@ -12,8 +12,15 @@
 
 #include "../inc/push_swap.h"
 
-void	terminate(char *msg)
+void	terminate(char *msg, char **args, t_node **stack_a)
 {
+	if (args)
+	{
+		free_array(args);
+		free(args);
+	}
+	if (stack_a)
+		free_list(stack_a);
 	write(2, msg, 6);
 	exit(1);
 }
@@ -38,7 +45,7 @@ t_node	*create_node(int value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		terminate("Error\n");
+		terminate("Error\n", NULL, NULL);
 	new_node->data = value;
 	new_node->rank = 0;
 	new_node->next = NULL;

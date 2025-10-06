@@ -37,18 +37,20 @@ typedef struct s_stacks
 	int		total_size;
 }					t_stacks;
 
-void	terminate(char *msg);
+void	terminate(char *msg, char **args, t_node **stack_a);
 void	free_array(char **array);
 t_node	*create_node(int value);
 void	add_to_bottom(t_node **head, t_node *new_node);
 void	free_list(t_node **head);
-int		parse_int(char *str);
 int		has_duplicates(t_node *head, int value);
-void	build_stack(t_stacks *stacks, char **args);
+void	build_stack(t_stacks *stacks, char **args, int free_args);
 int		is_stack_sorted(t_node *stack);
 void	assign_ranks(t_stacks *stacks);
 void	cleanup_stacks(t_stacks *stacks);
 void	execute_sorting(t_stacks *stacks);
+void	move_min_to_top(t_stacks *stacks);
+t_node	*find_min_node(t_node *stack);
+int		get_node_position(t_node *stack, t_node *target);
 
 void	swap_a(t_stacks *stacks);
 void	swap_b(t_stacks *stacks);
@@ -68,7 +70,8 @@ void	push_b(t_stacks *stacks);
 void	radix_sort(t_stacks *stacks);
 void	simple_sort(t_stacks *stacks);
 void	sort_two(t_stacks *stacks);
-void	sort_three(t_stacks *stacks);
+void	sort_three(t_stacks *stacks, t_node *first, t_node *second,
+			t_node *third);
 void	sort_four_five(t_stacks *stacks);
 
 #endif
